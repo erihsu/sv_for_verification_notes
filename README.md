@@ -1,4 +1,4 @@
 # systemverilog_notes
 recording my notes on systemverilog
-# Contents
+## Contents
 1. data types

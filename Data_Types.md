@@ -33,3 +33,32 @@ use `const` keyword to decorate a data
 ```systemverilog
 s = "systemverilog";
 ``` 
+---
+# Solution
+1. Answer for Q1
+  a.-128~127
+  b.TODO
+  c.32768
+  d.0
+  e.-1
+2. Answer for Q2(Seems Question have some issues about array indexing)
+3. Answer fo Q3
+  ```systemverilog
+  a.
+  bit [11:0] my_array [4];
+  
+  b.
+  bit [3:0] iter;
+  foreach (my_array[i]) begin
+    iter = i;
+    my_array[i] = {iter,iter+1,iter+2};
+  end
+  
+  c.
+  
+  
+  ```
+
+
+# Reference
+[systemverilog for verification]()

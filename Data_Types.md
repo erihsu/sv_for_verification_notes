@@ -18,6 +18,9 @@ array1 = new[5]; // allocate 5 elements
 ```systemverilog
 int assoc1[int]; // declare associative array with int type index and int value
 ``` 
+> bit [3:0][7:0] my_array; // packed 4 bytes into 32-bits 
+> bit [7:0] my_array [4]; // unpacked array  
+
 4. Queue
 ```systemverilog
 int queue1[$] = {1,2,3}; // initialize queue
@@ -36,11 +39,11 @@ s = "systemverilog";
 ---
 # Solution
 1. Answer for Q1
-  a.-128~127
-  b.TODO
-  c.32768
-  d.0
-  e.-1
+  a.-128~127  
+  b.TODO  
+  c.32768  
+  d.0  
+  e.-1  
 2. Answer for Q2(Seems Question have some issues about array indexing)
 3. Answer fo Q3
   ```systemverilog
@@ -55,10 +58,24 @@ s = "systemverilog";
   end
   
   c.
+  for (int i = 0;i<$size(my_array);i++)begin
+    $display("%0d th of my_array[5:4] = %0b",my_array[i][5:4]);
+  end // use for loop
   
-  
+  foreach(my_array[i]) begin
+    $display("%0d th of my_array[5:4] = %0b",my_array[i][5:4]);
+  end
   ```
-
-
+4. Answer for Q4
+  ```systemverilog
+  a.1st and 3rd are legal 
+  b.{32'bX,32'bX,32'bX,32'bX,32'b1}
+  ``` 
+5. Answer for Q5
+  ```systemverilog
+  a.3rd is legal
+  b.{32'bX,32'bX,32'bX,32'bX,32'b1}
+  ``` 
+6. 
 # Reference
 [systemverilog for verification]()

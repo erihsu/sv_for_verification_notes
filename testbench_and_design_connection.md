@@ -38,9 +38,9 @@ The introudce of **Program Block** is to solve the problem of mixing of design a
 
 >If there are more than one event in Observed or Reactive region, they will return back before Active region to finish schedual.
 
-> - Active Region: Design events\
-> - Observed Region: Assertion\
-> - Reactive Region: Testbench events\
+> - Active Region: Design events
+> - Observed Region: Assertion
+> - Reactive Region: Testbench events
 > - Postponed Region: sample signal
 
 # Connection TB and Design by Interface

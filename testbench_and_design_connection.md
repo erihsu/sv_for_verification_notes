@@ -29,21 +29,18 @@ endinterface
 ```
 
 # Program Block
-The introudce of **Program Block** is to solve the problem of mixing of design and testbench events during\
-the same time slot. Systemverilog schedule the testbench events separately by **Progam** . Thus, program\
-cannot have any hierachy such as instances of modules, interfaces, or other programs.
+The introudce of **Program Block** is to solve the problem of mixing of design and testbench events during the same time slot. Systemverilog schedule the\ testbench events separately by **Progam** . Thus, program cannot have any hierachy such as instances of modules, interfaces, or other programs.
 
 * Import Region inside a systemverilog time slot                                               
-slot_n &rarr Active &rarr Observed &rarr Reactive &rarr Postponed &rarr slot_(n+1)
-      &uarr (Design)     (Assertion) | (testbench)  |   (sample)              
-        |__________________________&darr__________&darr
+slot_n --> Active --> Observed --> Reactive --> Postponed --> slot_(n+1)\
+        ^ (Design)   (Assertion) |(testbench)|  (sample)\              
+        |________________________V___________V\ 
 
 # Connection TB and Design by Interface
 When use interface to connect TB and Design, interface must get instantiated.
 
 # Compilation Unit(Top-level Scope)
-Scope outside the boundaries of any **module**, **macromodule**, **interface**, **program**, **package** \
-or **primitive** is know as the *compilation-unit* scope.
+Scope outside the boundaries of any **module**, **macromodule**, **interface**, **program**, **package** or **primitive** is know as the *compilation-unit* scope.
 
 
 

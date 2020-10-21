@@ -1,8 +1,6 @@
 
 # Interface
-The interface construction in systemverilog is primarily simplify the connection between testbench and design. After the \
-introducing of interface, timing of simulus can be considered when cosntructing interface. It's realized by the clock \
-block and the signal in the clock block is synchronous to the clock signal.
+The interface construction in systemverilog is primarily simplify the connection between testbench and design. After the introducing of interface, timing of simulus can be considered when cosntructing interface. It's realized by the clock block and the signal in the clock block is synchronous to the clock signal.
 
 The simpliest interface is just a bundle of bidirectional signals. An example is as follows.
 
@@ -36,14 +34,14 @@ The introudce of **Program Block** is to solve the problem of mixing of design a
 
 * Import Region inside a systemverilog time slot    
 
-slot_n --> Active --> Observed --> Reactive --> Postponed --> slot_(n+1)
+>slot_n --> Active --> Observed --> Reactive --> Postponed --> slot_(n+1)
 
-If there are more than one event in Observed or Reactive region, they will return back before Active region to finish schedual.
+>If there are more than one event in Observed or Reactive region, they will return back before Active region to finish schedual.
 
-Active Region: Design events\
-Observed Region: Assertion\
-Reactive Region: Testbench events\
-Postponed Region: sample signal
+> - Active Region: Design events\
+> - Observed Region: Assertion\
+> - Reactive Region: Testbench events\
+> - Postponed Region: sample signal
 
 # Connection TB and Design by Interface
 

@@ -1,5 +1,6 @@
+# Testbench And Design Connection
 
-# Interface
+## Interface
 The interface construction in systemverilog is primarily simplify the connection between testbench and design. After the introducing of interface, timing of simulus can be considered when cosntructing interface. It's realized by the clock block and the signal in the clock block is synchronous to the clock signal.
 
 The simpliest interface is just a bundle of bidirectional signals. An example is as follows.
@@ -28,7 +29,7 @@ interface my_if(input bit clk);
 endinterface
 ```
 
-# Program Block
+## Program Block
 
 The introudce of **Program Block** is to solve the problem of mixing of design and testbench events during the same time slot. Systemverilog schedule the testbench events separately by **Progam** . Thus, program cannot have any hierachy such as instances of modules, interfaces, or other programs.
 
@@ -43,13 +44,46 @@ The introudce of **Program Block** is to solve the problem of mixing of design a
 > - Reactive Region: Testbench events
 > - Postponed Region: sample signal
 
-# Connection TB and Design by Interface
+## Connection TB and Design by Interface
 
 When use interface to connect TB and Design, interface must get instantiated.
 
-# Compilation Unit(Top-level Scope)
+## Compilation Unit(Top-level Scope)
 
 Scope outside the boundaries of any **module**, **macromodule**, **interface**, **program**, **package** or **primitive** is know as the *compilation-unit* scope.
 
+----
+# Solution for [1] in Chap4
+```systemverilog
+//Answer for Q1
+interface ahb_if(input bit HCLK);
+  bit [20:0] HADDR;
+  bit HWRITE;
+  bit [1:0] HTRANS;
+  bit [7:0] HWDATA, HRDATA;
+  
+  clocking cb @(negedge HCLK);
+    output HTRANS;
+    output HWDATA;
+    output HWRITE;
+    output HTRANS;
+    output HWDATA;
+    input HRDATA;
+  endclocking
+  
+endinterface
 
+module testbench();
+  bus_master bfm;
+  ahb_if ahbif;
+  design_slave dut;
+  assert(ahbif.cb.HTRANS == 2'b0 || ahif.cb.HTRANS == 2'b10) else $display("ERROR: interface got undefined transaction type!");
+  // connect bfm, ahbif and dut
+
+endmodule
+
+
+
+
+```
 

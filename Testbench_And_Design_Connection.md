@@ -82,8 +82,45 @@ module testbench();
 
 endmodule
 
+// Answer for Q2
+
+interface my_if(input bit clk);
+  bit write;
+  bit [15:0] data_in;
+  bit [7:0] address;
+  logic [15:0] data_out;
+  
+  clocking cb @(negedge clk);
+      output write;
+      output data_in;
+      output address;
+      input data_out;
+  endclocking
+
+  modport master(
+    clocking cb
+  );
+  
+  modport slave(
+    input write,data_in,
+    output address,data_out,
+  );
+
+endinterface
+
+// Answer for Q3
 
 
+// Answer for Q4
+
+clocking cb @(negedge clk);
+   output #25ns write;
+   output data_in;
+   output #25ns address;
+   input #15ns data_out;
+endclocking
+
+// Answer for Q5
 
 ```
 

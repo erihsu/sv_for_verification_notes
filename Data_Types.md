@@ -37,7 +37,7 @@ use `const` keyword to decorate a data
 s = "systemverilog";
 ``` 
 ---
-# Solution
+# Solutions for [1] in Chap2
 1. Answer for Q1\
   a.-128~127\
   b.TODO\
@@ -163,7 +163,6 @@ ALU (
   .input(opcode),
 );
 ```
-
-
+----
 # Reference
-[systemverilog for verification]()
+[1][systemverilog for verification]()

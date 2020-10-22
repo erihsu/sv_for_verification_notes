@@ -163,6 +163,3 @@ ALU (
   .input(opcode),
 );
 ```
-----
-# Reference
-[1][systemverilog for verification]()

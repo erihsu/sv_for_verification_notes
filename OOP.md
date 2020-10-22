@@ -13,7 +13,7 @@ Common class template:
 ```systemverilog
 class abc 
 
-function new();
+function abc new();
 ...
 endfunction
 
@@ -46,3 +46,59 @@ Global Variable means it have the global name space and it's visible to everyone
 
 ## Public VS Local
 Unlike other OOP language, systemverilog regard variable as public default, to make error injection more easily. Otherwise, you have to add extra code to by-pass data-hidding mechanism.
+
+# Solution for [1] in Chap5
+```systemverilog
+// Answer for Q1
+class MemTrans;
+  logic [7:0] data_in;
+  logic [3:0] address;
+  
+  function void print();
+      $display("Data:%0d with Address:%0d",data_in,address);
+  endfunction
+  
+  extern function new();
+
+endclass
+
+initial begin
+  MemTrans tr;
+  tr = new(); // Default set data_in and address all to X
+end
+
+// Answer for Q2
+function void MemTrans::new();
+  data_in = 8'b0;
+  address = 4'b0;
+endfunction
+
+// Answer for Q3
+function void MemTrans::new(input logic [7:0] input_data=8'b0,input logic [3:0] input_address=4'b0);
+  data_in = input_data;
+  address = input_address;
+endfunction
+
+program automatic test;
+  MemTrans tr1;
+  MemTrans tr2;
+  tr1 = new(.input_address(2));
+  tr2 = new(.input_data(3),.input_address(4));
+endprogram
+
+// Answer for Q4
+program automatic test;
+  MemTrans tr1;
+  MemTrans tr2;
+  tr1 = new(.input_address(2));
+  tr2 = new(.input_data(3),.input_address(4));
+  tr1.address = 4'hF;
+  tr1.print();
+  tr2.print();
+  tr2 = null;
+endprogram
+
+// Answer for Q5
+TODO
+
+```

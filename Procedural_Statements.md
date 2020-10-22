@@ -1,4 +1,4 @@
-# Summary
+# Procedural Statement
 
 ## Basic procedural statement
 **function & task & void function**\
@@ -18,8 +18,8 @@ automatic
 ## Time value
 **Built-in data types about time** : time, realtime\
 **system function**: $timeformat\
-
-## Solution\
+----
+## Solutions for [1] in Chap3
 ```systemverilog
 // Answer for Q1
 int my_array[512];
@@ -55,6 +55,5 @@ $timeformat(-12,2,"",5)
 // 2 16000
 // 1 21000
 // 2 22000
-
 
 ```

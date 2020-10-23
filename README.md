@@ -1,7 +1,7 @@
 # systemverilog_notes
 recording my notes on systemverilog
 
-# Contents
+## Contents
 1. data types
 2. procedural statement
 3. testbench and design connection
@@ -11,5 +11,5 @@ recording my notes on systemverilog
 7. functional coverage
 8. advanced oop and advanced interface
 
-# Reference
+## Reference
 [Systemverilog For Verification](https://3ec1218usm.files.wordpress.com/2016/12/book_systemverilog_for_verification.pdf)

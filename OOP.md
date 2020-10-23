@@ -99,6 +99,44 @@ program automatic test;
 endprogram
 
 // Answer for Q5
-TODO
+class MemTrans;
+  logic [7:0] data_in;
+  logic [3:0] address;
+  static last_address;
+  
+  function void print();
+      $display("Data:%0d with Address:%0d",data_in,last_address);
+  endfunction
+  
+  extern function new();
+  extern static function print_last_address();
+
+endclass
+
+function MemTrans::new(input logic [7:0] input_data=8'b0,input logic [3:0] input_address=4'b0);
+  data_in = input_data;
+  address = input_address;
+  last_address = address;
+endfunction
+
+// Answer for Q6
+
+static function print_last_adddress();
+  $display("Last address:%0d" last_address);
+endfunction
+
+program automatic test;
+  MemTrans tr1;
+  tr1 = new();
+  MemTrans::print_last_address();
+endprogram
+
+
+// Answer for Q7
+
+function void print_all;
+  print.print_8("data_in",data_in);
+  print.print_4("address",address);
+endfunction
 
 ```

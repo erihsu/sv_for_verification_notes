@@ -3,7 +3,7 @@
  1. 4s  
   logic, integer, time 
  2. 2s  
-  bit, int, byte, shortint,longint, real 
+  bit(unsigned), int, byte, shortint,longint, real 
 * Array 
 1. Fixed-size Array 
 ```systemverilog
